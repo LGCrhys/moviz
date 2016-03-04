@@ -1,29 +1,16 @@
 var path = require('path');
-
-var test_json = [{
-    id:1,
-    name:'Photo 1',
-    path:'path_of_picture1'
-},{
-    id:2,
-    name:'Photo 2',
-    path:'path_of_picture2'
-},{
-    id:3,
-    name:'Photo 3',
-    path:'path_of_picture3'
-}];
+var mongoose = require('mongoose');
+var db = require('./models/Moviz.js');
 
 module.exports = function (app) {
 
     // get all pictures
     app.get('/pictures', function (req, res) {
-        res.json(test_json);
+        res.json({});
     });
 
     // create picture and send back all pictures after creation
     app.post('/pictures', function (req, res) {
-
     });
     
     // get a picture
