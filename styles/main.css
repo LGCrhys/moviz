@@ -82,7 +82,7 @@ body {
 
 /* Custom page header */
 .page-header {
-  background-image: url('/resources/img/banner.jpeg');
+  background-image: url('/styles/resources/img/banner.jpeg');
   height: 200px;
   text-align: center;
   vertical-align: middle;
