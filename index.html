@@ -28,8 +28,8 @@
                         <!-- TODO BRAND -->
                     </a>
                 </li>
-                <div ng-repeat="value in menus">
-                  <li>
+                <div class="sidebar-menu">
+                  <li ng-repeat="value in menus">
                       <a href="#" ><icon-button menu="{{value}}"></icon-button></a>     
                   </li>
                 </div>
@@ -39,18 +39,18 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid"> 
 
 
-              <div class="header">
-              HEADER
+              <div class="page-header" ng-controller="HeaderCtrl"> 
+                <h1 class="col-md-6 col-md-push-3">
+                  <span ng-bind-html="headerTitle"/>
+                </h1>
               </div>
 
-              <div class="footer">
-              FOOTER
-              </div>
+              <div class="container-fluid">
+                <div ng-view=""></div>
+              </div>     
                 
-            </div>
         </div>
         <!-- /#page-content-wrapper -->
 

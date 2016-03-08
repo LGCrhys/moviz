@@ -8,5 +8,5 @@
  * Controller of the movizApp
  */
 angular.module('movizApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', function ($scope) {
   });

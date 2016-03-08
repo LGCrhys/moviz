@@ -3,11 +3,31 @@
 /* SIDE BAR*/
 @wrapper-transition : all 0.5s ease;
 @wrapper-padding : 100px;
-@sidebar-color : #004080;
+@sidebar-color : grey;
 @sidebar-li-color : #999999;
 @sidebar-li-color-hover : #ffffff;
+@header-color : grey;
+@footer-color : grey;
 
 /* STYLES --------------------------------------*/
+
+.page-header {
+    width: 100%;
+    height: 150px !important;
+    background: @header-color;
+    margin: 0px 0 0px !important;
+	background-image: url('/styles/resources/img/banner.jpg');
+	text-align: center;
+	vertical-align: middle ;
+	background-size: 100% 100%;
+	h1{
+		background-color: rgba(255,255,255,0.8);
+	}
+}
+
+.global-search{
+	margin-top: 1%;
+}
 
 #wrapper {
     padding-left: 0;
@@ -41,8 +61,7 @@
 
 #page-content-wrapper {
     width: 100%;
-    position: absolute;
-    padding: 15px;
+    position: relative;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -89,6 +108,10 @@
 	}
 }
 
+.sidebar-menu{
+	margin-top: 75%;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: @wrapper-padding;
@@ -104,11 +127,6 @@
 
     #wrapper.toggled #sidebar-wrapper {
         width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
     }
 
     #wrapper.toggled #page-content-wrapper {
