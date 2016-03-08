@@ -1,0 +1,144 @@
+/* CONSTANTES ----------------------------------*/
+
+/* SIDE BAR*/
+@wrapper-transition : all 0.5s ease;
+@wrapper-padding : 100px;
+@sidebar-color : #004080;
+@sidebar-li-color : #999999;
+@sidebar-li-color-hover : #ffffff;
+
+/* STYLES --------------------------------------*/
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: @wrapper-transition;
+    -moz-transition: @wrapper-transition;
+    -o-transition: @wrapper-transition;
+    transition: @wrapper-transition;
+}
+
+#wrapper.toggled {
+    padding-left: @wrapper-padding;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: @wrapper-padding;
+    width: 0;
+    height: 100%;
+    margin-left: -@wrapper-padding;
+    overflow-y: auto;
+    background: @sidebar-color;
+    -webkit-transition: @wrapper-transition;
+    -moz-transition: @wrapper-transition;
+    -o-transition: @wrapper-transition;
+    transition: @wrapper-transition;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: @wrapper-padding;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -@wrapper-padding;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: @wrapper-padding;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: @sidebar-li-color;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: @sidebar-li-color-hover;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: @sidebar-li-color;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: @sidebar-li-color-hover;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: @wrapper-padding;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: @wrapper-padding;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+// Optimize for icon based button
+.btn-icon {
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  border-radius: 0;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  &:active, &:focus {
+    border-color: transparent;
+  }
+  &:focus {
+    outline: 0 none !important;
+  }
+}

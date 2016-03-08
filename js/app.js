@@ -16,10 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'firebase',
     'ngRoute'
   ])
-  .constant('FBURL','https://movizz.firebaseio.com')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
