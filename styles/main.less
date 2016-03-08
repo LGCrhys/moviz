@@ -15,10 +15,9 @@
     -moz-transition: @wrapper-transition;
     -o-transition: @wrapper-transition;
     transition: @wrapper-transition;
-}
-
-#wrapper.toggled {
-    padding-left: @wrapper-padding;
+    .toggled {
+    	padding-left: @wrapper-padding;
+	}
 }
 
 #sidebar-wrapper {
@@ -58,43 +57,36 @@
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: @sidebar-li-color;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: @sidebar-li-color-hover;
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
+    li {
+	    text-indent: 20px;
+	    line-height: 40px;
+	}
+	li a {
+	    display: block;
+	    text-decoration: none;
+	    color: @sidebar-li-color;
+		&:hover {
+		    text-decoration: none;
+		    color: @sidebar-li-color-hover;
+		    background: rgba(255,255,255,0.2);
+		}
+		&:active, &:focus {
+			text-decoration: none;
+		}
+	}
 }
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: @sidebar-li-color;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: @sidebar-li-color-hover;
-    background: none;
+    a {
+	    color: @sidebar-li-color;
+	    &:hover {
+		    color: @sidebar-li-color-hover;
+		    background: none;
+	    }
+	}
 }
 
 @media(min-width:768px) {
