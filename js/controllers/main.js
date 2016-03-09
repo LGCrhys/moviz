@@ -8,7 +8,8 @@
  * Controller of the movizApp
  */
 angular.module('movizApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function (RecentMedia,$scope) {
+  	$scope.recentMovies = RecentMedia.query();
   })
   .directive('aThumbnail', function() {
 	  return {
@@ -25,7 +26,17 @@ angular.module('movizApp')
 			    +' </div>'
 			    +'</a>'
 	  }
-	});
+	})
+  .service('RecentMedia', ['$resource',function($resource){
+    var RecentMedia = $resource(
+           'http://localhost:8080/medias',
+           {},
+           {
+               update:{method:'GET'}
+           }
+       );
+       return RecentMedia;
+	}]);
 
 
   
