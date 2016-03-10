@@ -8,8 +8,10 @@
  * Controller of the movizApp
  */
 angular.module('movizApp')
-  .controller('MainCtrl', function (RecentMedia,$scope) {
-  	$scope.recentMovies = RecentMedia.query();
+  .controller('MainCtrl', function (RecentMovies,RecentMusics,RecentPictures,$scope) {
+  	$scope.recentMovies = RecentMovies.query();
+  	$scope.recentMusics = RecentMusics.query();
+  	$scope.recentPictures = RecentPictures.query();
   })
   .directive('aThumbnail', function() {
 	  return {
@@ -28,15 +30,35 @@ angular.module('movizApp')
 			    +'</a>'
 	  }
 	})
-  .service('RecentMedia', ['$resource',function($resource){
-    var RecentMedia = $resource(
-           'http://localhost:8080/medias',
+  .service('RecentMovies', ['$resource',function($resource){
+    var RecentMovies = $resource(
+           'http://localhost:8080/movies',
            {},
            {
                update:{method:'GET'}
            }
        );
-       return RecentMedia;
+       return RecentMovies;
+	}])
+  .service('RecentMusics', ['$resource',function($resource){
+    var RecentMusics = $resource(
+           'http://localhost:8080/musics',
+           {},
+           {
+               update:{method:'GET'}
+           }
+       );
+       return RecentMusics;
+	}])
+  .service('RecentPictures', ['$resource',function($resource){
+    var RecentPictures = $resource(
+           'http://localhost:8080/pictures',
+           {},
+           {
+               update:{method:'GET'}
+           }
+       );
+       return RecentPictures;
 	}]);
 
 

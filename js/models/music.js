@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-var MediaSchema = new mongoose.Schema({
+var MusicSchema = new mongoose.Schema({
 	title : { type : String, validate: /\S+/},
-	media_type : {type: String , enums:["Music","Movie","Picture"]},
-	file_path : { type : String, validate: /([a-zA-Z]:)?(\\\\[a-zA-Z0-9_.-]+)+\\\\?/},
+	path : { type : String, validate: /([a-zA-Z]:)?(\\\\[a-zA-Z0-9_.-]+)+\\\\?/},
 	cover_path : { type : String, validate: /([a-zA-Z]:)?(\\\\[a-zA-Z0-9_.-]+)+\\\\?/},
+	format : { type : String},
 	rate : {type: Number, default: 0, enums:[0,1,2,3,4,5]},
 	category : { type : String, validate: /\S+/}
 });
-module.exports = mongoose.model('Media', MediaSchema);
+module.exports = mongoose.model('MusciAlbum', MusicSchema,'musicalbum');

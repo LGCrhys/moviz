@@ -23,12 +23,12 @@
 <div class="panel panel-default col-md-10 col-md-offset-1" style="text-align: center;">
   <h3>Recent Musics</h3>
   <div  ng-repeat="music in recentMusics">
-    <a-thumbnail href="#" src="/styles/resources/img/musics_icon.svg" legend="{{music.title}}"></a-thumbnail>
+    <a-thumbnail href="#" src="{{music.cover_path}}" legend="{{music.title}}"></a-thumbnail>
   </div>
 </div>
 <div class="panel panel-default col-md-10 col-md-offset-1" style="text-align: center;">
   <h3>Recent Pictures</h3>
   <div  ng-repeat="picture in recentPictures">
-    <a-thumbnail href="#" src="/styles/resources/img/pictures_icon.svg" legend="{{picture.title}}"></a-thumbnail>
+    <a-thumbnail href="#" src="{{picture.cover_path}}" legend="{{picture.title}}"></a-thumbnail>
   </div>
 </div>
