@@ -12,7 +12,7 @@ module.exports = function (app) {
         }
 
         res.json(medias); // return all todos in JSON format
-        });
+        }).limit(6);
     });
 
     // create media and send back all medias after creation

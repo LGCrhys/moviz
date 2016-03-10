@@ -17,7 +17,7 @@
 <div class="panel panel-default col-md-10 col-md-offset-1" style="text-align: center;">
   <h3>Recent Movies</h3>
   <div  ng-repeat="movie in recentMovies">
-    <a-thumbnail href="#" src="/styles/resources/img/movies_icon.svg" legend="{{movie.title}}"></a-thumbnail>
+    <a-thumbnail href="#" src="{{movie.cover_path}}" legend="{{movie.title}}" mediatype="movies"></a-thumbnail>
   </div>
 </div>
 <div class="panel panel-default col-md-10 col-md-offset-1" style="text-align: center;">

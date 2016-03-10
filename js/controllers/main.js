@@ -17,10 +17,11 @@ angular.module('movizApp')
 	    scope: {
 	    	href: '@',
 	    	src: '@',
-	    	legend: '@'
+	    	legend: '@',
+	    	mediatype:'@'
 	    },
 	    template: '<a href="{{href}}" class="thumbnail">'
-			    +'  <img src="{{src}}" alt="No Preview">'
+				+'	<img ng-src="http://localhost:8081/{{src}}" alt="No Cover" />'
 			    +'  <div class="caption">'
 			    +'    <p>{{legend}}</p>'
 			    +' </div>'
