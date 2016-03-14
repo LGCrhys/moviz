@@ -33,6 +33,11 @@ angular
         controller: 'MoviesCtrl',
         controllerAs: 'movies'
       })
+      .when('/settings', {
+        templateUrl: 'partials/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
       .otherwise({
         redirectTo: '/'
       });
