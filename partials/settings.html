@@ -1,2 +1,44 @@
-<form>
-</form>
+<div class="settings-panel">
+	<h1 style="text-align: center;"> Settings </h1>
+	<div class="panel panel-default col-md-10 col-md-offset-1">
+		<h2 style="text-align: center;">Add a Media</h2>
+		<form>
+			<fieldset class="form-group">
+				<label>Type of media :</label>
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="movieRadio" value="movie" checked> Movie
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="musicRadio" value="music" disabled> Music Album
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="pictureRadio" value="picture" disabled> Picture Album
+				</label>				
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="mediaTitle">Title : </label>
+				<input type="text" class="form-control" id="mediaTitle" placeholder="Enter a Title"></input>
+			</fieldset>
+			<fieldset>
+				<label for="mediaFile">Select a File :</label>
+				<input type="file" id="mediaFile">
+				<span class="file-custom"></span>
+			</fieldset>
+			<fieldset>
+				<label for="mediaCoverFile">Select a Cover Image :</label>
+				<input type="file" id="mediaCoverFile">
+				<span class="file-custom"></span>
+			</fieldset>
+			<fieldset>
+				<label for="mediaCategorie">Select a Categorie :</label>
+				<select class="c-select">
+				  <option selected>No Categorie ----</option>
+				  <option value="1">Western</option>
+				  <option value="2">Biopic</option>
+				  <option value="3">BlockBuster</option>
+				</select>
+			</fieldset>
+  			<button type="submit" class="btn btn-primary">Add Media</button>
+		</form>
+	</div>
+</div>
