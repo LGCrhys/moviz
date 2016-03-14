@@ -28,10 +28,10 @@ angular
       .when('/login', {
         templateUrl: 'partials/login.html'
       })
-      .when('/details', {
-        templateUrl: 'partials/details.html',
-        controller: 'DetailsCtrl',
-        controllerAs: 'details'
+      .when('/movies', {
+        templateUrl: 'partials/movies.html',
+        controller: 'MoviesCtrl',
+        controllerAs: 'movies'
       })
       .otherwise({
         redirectTo: '/'

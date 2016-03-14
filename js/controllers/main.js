@@ -13,7 +13,7 @@ angular.module('movizApp')
   	$scope.recentMusics = RecentMusics.query();
   	$scope.recentPictures = RecentPictures.query();
   })
-  .directive('aThumbnail', function() {
+  .directive('captionThumbnail', function() {
 	  return {
 	    restrict: 'E',
 	    scope: {
@@ -22,12 +22,22 @@ angular.module('movizApp')
 	    	legend: '@',
 	    	mediatype:'@'
 	    },
-	    template: '<a href="{{href}}" class="thumbnail">'
+	    /*template: '<a href="{{href}}" class="thumbnail">'
 				+'	<img ng-src="http://localhost:8081/{{src}}" alt="No Cover" />'
 			    +'  <div class="caption">'
 			    +'    <p>{{legend}}</p>'
 			    +' </div>'
-			    +'</a>'
+			    +'</a>'*/
+      template: '<ul class="caption-style" >'
+                  +'<li> <img ng-src="http://localhost:8081/{{src}}" alt="No Cover">'
+                  +'<div class="caption">'
+                  +'<div class="blur"></div>'
+                  +'<div class="caption-text">'
+                  +'<h1>{{legend}}</h1>'
+                  +'</div>'
+                  +'</div>'
+                  +'</li>'
+                  +'</ul>'
 	  }
 	})
   .service('RecentMovies', ['$resource',function($resource){
