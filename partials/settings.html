@@ -3,7 +3,7 @@
 	<div class="panel panel-default col-md-10 col-md-offset-1">
 		<h2 style="text-align: center;">Add a Media</h2>
 		<form>
-			<fieldset class="form-group">
+			<fieldset class="form-group col-md-12">
 				<label>Type of media :</label>
 				<label class="radio-inline">
 				  <input type="radio" name="inlineRadioOptions" id="movieRadio" value="movie" checked> Movie
@@ -15,30 +15,40 @@
 				  <input type="radio" name="inlineRadioOptions" id="pictureRadio" value="picture" disabled> Picture Album
 				</label>				
 			</fieldset>
-			<fieldset class="form-group">
+			<fieldset class="form-group col-md-12">
 				<label for="mediaTitle">Title : </label>
 				<input type="text" class="form-control" id="mediaTitle" placeholder="Enter a Title"></input>
 			</fieldset>
-			<fieldset>
+			<fieldset class="col-md-6">
 				<label for="mediaFile">Select a File :</label>
-				<input type="file" id="mediaFile">
-				<span class="file-custom"></span>
+				<div class="input-group">
+				  <span class="input-group-btn">
+				    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+				    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
+				  </span>
+				  <span class="form-control">Media File ...</span>
+				</div>
 			</fieldset>
-			<fieldset>
+			<fieldset class="col-md-6">
 				<label for="mediaCoverFile">Select a Cover Image :</label>
-				<input type="file" id="mediaCoverFile">
-				<span class="file-custom"></span>
+				<div class="input-group">
+				  <span class="input-group-btn">
+				    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+				    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
+				  </span>
+				  <span class="form-control">Cover File ...</span>
+				</div>
 			</fieldset>
-			<fieldset>
+			<fieldset class="col-md-12"> 
 				<label for="mediaCategorie">Select a Categorie :</label>
-				<select class="c-select">
+				<select id="mediaCategorie" class="form-control input-group">
 				  <option selected>No Categorie ----</option>
 				  <option value="1">Western</option>
 				  <option value="2">Biopic</option>
 				  <option value="3">BlockBuster</option>
 				</select>
 			</fieldset>
-  			<button type="submit" class="btn btn-primary">Add Media</button>
+  			<button type="submit" class="btn btn-primary input-group col-md-2 col-md-offset-5">Add Media</button>
 		</form>
 	</div>
 </div>
