@@ -34,4 +34,25 @@ angular.module('movizApp')
 	    $scope.submit = function(){
 	    	console.log($scope.data);
 	    }
-	}]);
+	}])
+    .directive('uploadFile', function() {
+	  return {
+	    restrict: 'E',
+	    scope: {
+	    	fileread: '=',
+	    	emptyText: '@'
+	    },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                scope.$apply(function () {
+                    scope.fileread = changeEvent.target.files[0];
+                });
+            });
+        },
+        template: '<span class="input-group-btn">'
+				    +'<span class="btn btn-primary" onclick="$(this).parent().find(\'input[type=file]\').click();">Browse</span>'
+				    +'<input name="uploaded_file" onchange="$(this).parent().parent().find(\'.form-control\').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">'
+				 +' </span>'
+				 +'<span class="form-control">{{emptyText}}</span>'
+	  }
+	});

@@ -22,12 +22,6 @@ angular.module('movizApp')
 	    	legend: '@',
 	    	mediatype:'@'
 	    },
-	    /*template: '<a href="{{href}}" class="thumbnail">'
-				+'	<img ng-src="http://localhost:8081/{{src}}" alt="No Cover" />'
-			    +'  <div class="caption">'
-			    +'    <p>{{legend}}</p>'
-			    +' </div>'
-			    +'</a>'*/
       template: '<ul class="caption-style" >'
                   +'<li> <img ng-src="http://localhost:8081/{{src}}" alt="No Cover">'
                   +'<div class="caption">'

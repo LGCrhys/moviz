@@ -22,21 +22,13 @@
 			<fieldset class="col-md-6">
 				<label for="mediaFile">Select a File :</label>
 				<div class="input-group">
-				  <span class="input-group-btn">
-				    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
-				    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
-				  </span>
-				  <span class="form-control">Media File ...</span>
+				  <upload-file fileread="data.path" empty-text="Media File ..."/>
 				</div>
 			</fieldset>
 			<fieldset class="col-md-6">
 				<label for="mediaCoverFile">Select a Cover Image :</label>
 				<div class="input-group">
-				  <span class="input-group-btn">
-				    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
-				    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
-				  </span>
-				  <span class="form-control">Cover File ...</span>
+				  <upload-file fileread="data.cover_path" empty-text="Cover File ..."/>
 				</div>
 			</fieldset>
 			<fieldset class="col-md-12"> 
