@@ -17,7 +17,7 @@
 			</fieldset>
 			<fieldset class="form-group col-md-12">
 				<label for="mediaTitle">Title : </label>
-				<input type="text" class="form-control" id="mediaTitle" placeholder="Enter a Title"></input>
+				<input type="text" class="form-control" id="mediaTitle" placeholder="Enter a Title" required></input>
 			</fieldset>
 			<fieldset class="col-md-6">
 				<label for="mediaFile">Select a File :</label>
@@ -41,12 +41,9 @@
 			</fieldset>
 			<fieldset class="col-md-12"> 
 				<label for="mediaCategorie">Select a Categorie :</label>
-				<select id="mediaCategorie" class="form-control input-group">
-				  <option selected>No Categorie ----</option>
-				  <option value="1">Western</option>
-				  <option value="2">Biopic</option>
-				  <option value="3">BlockBuster</option>
-				</select>
+				<select name="mediaCategorie" id="mediaCategorie" class="form-control input-group"
+      				ng-options="option.name for option in categories.availableOptions track by option.id"
+      				ng-model="data.selectedOption"></select>
 			</fieldset>
   			<button type="submit" class="btn btn-primary input-group col-md-2 col-md-offset-5">Add Media</button>
 		</form>
