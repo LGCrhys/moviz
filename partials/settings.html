@@ -6,13 +6,13 @@
 			<fieldset class="form-group col-md-12">
 				<label>Type of media :</label>
 				<label class="radio-inline">
-				  <input type="radio" name="inlineRadioOptions" id="movieRadio" value="movie" checked> Movie
+				  <input type="radio" ng-model="mediaType" value="movie" checked> Movie
 				</label>
 				<label class="radio-inline">
-				  <input type="radio" name="inlineRadioOptions" id="musicRadio" value="music" disabled> Music Album
+				  <input type="radio" ng-model="mediaType" value="music"> Music Album
 				</label>
 				<label class="radio-inline">
-				  <input type="radio" name="inlineRadioOptions" id="pictureRadio" value="picture" disabled> Picture Album
+				  <input type="radio" ng-model="mediaType" value="picture"> Picture Album
 				</label>				
 			</fieldset>
 			<fieldset class="form-group col-md-12">
@@ -41,8 +41,9 @@
 			</fieldset>
 			<fieldset class="col-md-12"> 
 				<label for="mediaCategorie">Select a Categorie :</label>
-				<select name="mediaCategorie" id="mediaCategorie" class="form-control input-group"
-      				ng-options="option.name for option in categories.availableOptions track by option.id"
+				<select id="mediaCategorie" class="form-control input-group"
+      				ng-options="option.name for option in categories.availableOptions 
+      				| filter:{ media : mediaType }"
       				ng-model="data.selectedOption"></select>
 			</fieldset>
   			<button type="submit" class="btn btn-primary input-group col-md-2 col-md-offset-5">Add Media</button>
