@@ -21,18 +21,19 @@ angular.module('movizApp')
 	      		{id: '7', name: 'Trip' , media:'picture'},
 	      		{id: '8', name: 'Party' , media:'picture'},
 	      		{id: '9', name: 'Urban' , media:'picture'}
-	    	]};
+	    	],
+	    	selectedOption: {id: '1', name: 'Western' , media:'movie'}};
 
 	    $scope.data = {
 	    	mediaType : 'movie',
 	    	title : '',
-	    	path : '',
-	    	cover_path : '',
-	    	categorie : ''
+	    	file : null,
+	    	cover_file : null,
+	    	categorie : ""
 	    }
 
 	    $scope.submit = function(){
-	    	console.log($scope.data);
+	    	$scope.data.categorie = $scope.categories.selectedOption.name;
 	    }
 	}])
     .directive('uploadFile', function() {
@@ -49,10 +50,12 @@ angular.module('movizApp')
                 });
             });
         },
-        template: '<span class="input-group-btn">'
-				    +'<span class="btn btn-primary" onclick="$(this).parent().find(\'input[type=file]\').click();">Browse</span>'
-				    +'<input name="uploaded_file" onchange="$(this).parent().parent().find(\'.form-control\').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">'
-				 +' </span>'
-				 +'<span class="form-control">{{emptyText}}</span>'
+        template: '<div class="input-group">'
+        			+'<span class="input-group-btn">'
+				  	  +'<span class="btn btn-primary" onclick="$(this).parent().find(\'input[type=file]\').click();">Browse</span>'
+				    	+'<input name="uploaded_file" onchange="$(this).parent().parent().find(\'.form-control\').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">'
+				 	  +' </span>'
+				 	+'<span class="form-control">{{emptyText}}</span>'
+				 	+'</div>'
 	  }
 	});
