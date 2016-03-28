@@ -21,18 +21,18 @@
 			</fieldset>
 			<fieldset class="col-md-6">
 				<label for="mediaFile">Select a File :</label>
-				<upload-file fileread="data.file" empty-text="Media File ..."/>
+				<upload-file fileread="data.file" empty-text="Media File ..." required/>
 			</fieldset>
 			<fieldset class="col-md-6">
 				<label for="mediaCoverFile">Select a Cover Image :</label>
-				<upload-file fileread="data.cover_file" empty-text="Cover File ..."/>
+				<upload-file fileread="data.cover_file" empty-text="Cover File ..." required/>
 			</fieldset>
 			<fieldset class="col-md-12"> 
 				<label for="mediaCategorie">Select a Categorie :</label>
 				<select id="mediaCategorie" class="form-control input-group"
       				ng-options="option.name for option in categories.availableOptions 
       				| filter:{ media : data.mediaType }"
-      				ng-model="categories.selectedOption"></select>
+      				ng-model="categories.selectedOption" required></select>
 			</fieldset>
   			<input type="submit" id="submit" value="Add Media" class="btn btn-primary input-group col-md-2 col-md-offset-5"/>
 		</form>

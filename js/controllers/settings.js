@@ -8,7 +8,7 @@
  * Controller of the movizApp
  */
 angular.module('movizApp')
-  .controller('SettingsCtrl',['$scope', function($scope) {
+  .controller('SettingsCtrl',['mediaFactory','$scope', function(mediaFactory,$scope) {
 	  	//TODO : Gestion categories via DB
 	   	$scope.categories = {
 		    availableOptions: [
@@ -34,6 +34,19 @@ angular.module('movizApp')
 
 	    $scope.submit = function(){
 	    	$scope.data.categorie = $scope.categories.selectedOption.name;
+	    	switch($scope.data.mediaType){
+	    		case 'movie':
+	    			mediaFactory.addMovie($scope.data);
+	    			break;
+	    		case 'music':
+	    			mediaFactory.addMusic($scope.data);
+	    			break;
+	    		case 'picture':
+	    			mediaFactory.addPicture($scope.data);
+	    			break;
+	    		default:
+	    			break;
+	    	}
 	    }
 	}])
     .directive('uploadFile', function() {
@@ -58,4 +71,24 @@ angular.module('movizApp')
 				 	+'<span class="form-control">{{emptyText}}</span>'
 				 	+'</div>'
 	  }
-	});
+	})
+   .service('mediaFactory', ['$http',function($http){
+    	this.addMovie = function(params) {
+	        $http.post('http://localhost:8080/movies', params).success(function(data, status) {
+	           	console.log(data);
+	           	console.log(status);
+	        })
+	   	};
+    	this.addMusic = function(params) {
+	        $http.post('http://localhost:8080/musics', params).success(function(data, status) {
+	           	console.log(data);
+	           	console.log(status);
+	        })
+	   	};
+    	this.addPicture = function(params) {
+	        $http.post('http://localhost:8080/pictures', params).success(function(data, status) {
+	           	console.log(data);
+	           	console.log(status);
+	        })
+	   	};
+	}]);

@@ -17,6 +17,11 @@ module.exports = function (app) {
         }).limit(6);
     });
 
+    // add a movie
+    app.post('/movies', function(req, res){
+        //TODO
+    });
+
     // get all musics
     app.get('/musics', function (req, res) {
         Music.find(function (err, musics) {
@@ -27,6 +32,11 @@ module.exports = function (app) {
 
         res.json(musics); // return all todos in JSON format
         }).limit(6);
+    });
+
+    // add a music
+    app.post('/musics', function(req, res){
+        //TODO
     });
 
     // get all pictures
@@ -40,16 +50,9 @@ module.exports = function (app) {
         res.json(pictures); // return all todos in JSON format
         }).limit(6);
     });
-    /*
-    // create media and send back all medias after creation
-    app.post('/medias', function (req, res) {
-    });
-    
-    // get a media
-    app.get('/media/:media', function (req, res) { 
-    });
 
-    // delete a media
-    app.delete('/media/:media_id', function (req, res) {
-    });*/
+    // add a picture
+    app.post('/pictures', function(req, res){
+        //TODO
+    });
 };
