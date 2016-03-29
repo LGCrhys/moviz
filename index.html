@@ -19,6 +19,12 @@
   </head>
   <body ng-app="movizApp">
 
+      <div id="spinnerwrap" loading-indicator>
+          <div class="spinner">
+            
+          </div>
+      </div>
+
       <div id="wrapper">
 
         <!-- Sidebar -->
@@ -41,7 +47,6 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-
               <div class="page-header" ng-controller="HeaderCtrl"> 
                 <h1 class="col-md-6 col-md-push-3">
                   <span ng-bind-html="headerTitle"/>
@@ -49,6 +54,7 @@
               </div>
 
               <div class="container-fluid">
+
                 <div ng-view=""></div>
               </div>     
                 
