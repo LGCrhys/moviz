@@ -24,29 +24,20 @@ angular.module('movizApp')
 	    	],
 	    	selectedOption: {id: '1', name: 'Western' , media:'movie'}};
 
-	    $scope.data = {
-	    	mediaType : 'movie',
-	    	title : '',
-	    	file : null,
-	    	cover_file : null,
-	    	categorie : ""
-	    }
+	   	$scope.mediaType = 'movie';
+	   	$scope.title = '';
+	   	$scope.file = null;
+	   	$scope.cover_file = null;
+	   	$scope.categorie = '';
 
 	    $scope.submit = function(){
-	    	$scope.data.categorie = $scope.categories.selectedOption.name;
-	    	switch($scope.data.mediaType){
-	    		case 'movie':
-	    			mediaFactory.addMovie($scope.data);
-	    			break;
-	    		case 'music':
-	    			mediaFactory.addMusic($scope.data);
-	    			break;
-	    		case 'picture':
-	    			mediaFactory.addPicture($scope.data);
-	    			break;
-	    		default:
-	    			break;
-	    	}
+	    	var data = new FormData();
+	    	data.append('mediaType',$scope.mediaType);
+	    	data.append('title',$scope.title);
+	    	data.append('categorie',$scope.categories.selectedOption.name);
+	    	data.append('files',$scope.file);
+	    	data.append('files',$scope.cover_file);
+	    	mediaFactory.addMedia(data);
 	    }
 	}])
     .directive('uploadFile', function() {
@@ -73,22 +64,12 @@ angular.module('movizApp')
 	  }
 	})
    .service('mediaFactory', ['$http',function($http){
-    	this.addMovie = function(params) {
-	        $http.post('http://localhost:8080/movies', params).success(function(data, status) {
-	           	console.log(data);
-	           	console.log(status);
-	        })
-	   	};
-    	this.addMusic = function(params) {
-	        $http.post('http://localhost:8080/musics', params).success(function(data, status) {
-	           	console.log(data);
-	           	console.log(status);
-	        })
-	   	};
-    	this.addPicture = function(params) {
-	        $http.post('http://localhost:8080/pictures', params).success(function(data, status) {
-	           	console.log(data);
-	           	console.log(status);
-	        })
+    	this.addMedia = function(params) {
+	        $http.post('http://localhost:8080/medias',
+	        	params,
+	        	{
+					headers: {'Content-Type': undefined},
+					transformRequest: angular.identity
+				});
 	   	};
 	}]);
