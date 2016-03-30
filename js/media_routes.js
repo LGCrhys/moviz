@@ -36,10 +36,10 @@ module.exports = function (app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
-        }
+        }   
 
         res.json(movies); // return all todos in JSON format
-        }).limit(6);
+        }).sort({'_id': -1}).limit(6);
     });
 
     // get all musics
@@ -51,7 +51,7 @@ module.exports = function (app) {
         }
 
         res.json(musics); // return all todos in JSON format
-        }).limit(6);
+        }).sort({'_id': -1}).limit(6);
     });
 
     // get all pictures
@@ -63,7 +63,7 @@ module.exports = function (app) {
         }
 
         res.json(pictures); // return all todos in JSON format
-        }).limit(6);
+        }).sort({'_id': -1}).limit(6);
     });
 
     // add a media
@@ -74,6 +74,41 @@ module.exports = function (app) {
                 return res.end("Error uploading file.");
             }
             res.end("File is uploaded");
+            var media = null;
+            console.log(req.body.mediaType);
+            switch(req.body.mediaType){
+                case "movie":
+                    media = new Movie();
+                    media.title = req.body.title;
+                    media.path = req.files[0].path;
+                    media.cover_path = req.files[1].path;
+                    media.category = req.body.categorie;
+                    break;
+                case "music":
+                    media = new Music();
+                    media.title = req.body.title;
+                    media.path = req.files[0].path;
+                    media.cover_path = req.files[1].path;
+                    media.category = req.body.categorie;
+                    break;
+                case "picture":
+                    media = new Picture();
+                    media.title = req.body.title;
+                    media.path = req.files[0].path;
+                    media.cover_path = req.files[1].path;
+                    break;
+                default:
+                    break;
+            }
+            if(media){
+                media.save(function(err, user_Saved){
+                    if(err){
+                        console.log('Error while save media');
+                    }else{
+                        console.log(' Media saved!');
+                    }
+                });
+            }
         });
     });
 };
