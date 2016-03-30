@@ -44,13 +44,20 @@ angular
   })
   .config(function($httpProvider) {
 
-      $httpProvider.interceptors.push(function($q, $rootScope) {
+      $httpProvider.interceptors.push(function($q, $rootScope,$timeout) {
+          var inprogress = false;
           return {
               'request': function(config) {
-                  $rootScope.$broadcast('loading-started');
+                  inprogress = true;
+                  $timeout(function(){
+                    if(inprogress){
+                      $rootScope.$broadcast('loading-started');
+                    }
+                  },250);
                   return config || $q.when(config);
               },
               'response': function(response) {
+                  inprogress = false;
                   $rootScope.$broadcast('loading-complete');
                   return response || $q.when(response);
               }
